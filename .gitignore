@@ -1,0 +1,5 @@
+.DS_Store
+*.pyc
+runtime/upload/*
+runtime/camera/*
+runtime/postgresql/*
