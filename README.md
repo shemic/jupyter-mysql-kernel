@@ -15,7 +15,7 @@ vi ~/.local/config/mysql_config.json
     "user"     : "root",
     "port"     : "3306",
     "host"     : "127.0.0.1",
-    "charset"  : "utf8"
+    "charset"  : "utf8",
     "password" : "123456"
 }
 ```

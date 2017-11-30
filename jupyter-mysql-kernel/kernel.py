@@ -96,7 +96,9 @@ class MysqlKernel(Kernel):
 		if not code.strip():
 			return self.ok()
 		if not self.connect:
-			return self.err('Unable to connect to Mysql server. Check that the server is running.')
+			msg = 'Unable to connect to Mysql server. Check that the server is running.'
+			self.output(msg)
+			return self.err(msg)
 
 		sql = code.rstrip()
 		output = ''
