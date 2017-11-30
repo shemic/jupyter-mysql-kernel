@@ -47,7 +47,7 @@ setup(name='jupyter-mysql-kernel',
 	  url='https://github.com/shemic/jupyter-mysql-kernel',
 	  packages=['jupyter-mysql-kernel'],
 	  cmdclass={'install': install_with_kernelspec},
-	  install_requires=['prettytable'],
+	  install_requires=['pymysql','prettytable'],
 	  classifiers = [
 		  'Framework :: IPython',
 		  'License :: OSI Approved :: BSD License',
