@@ -1,4 +1,7 @@
-# jupyter-mysql-kernel
+# MySQL kernel for Jupyter/IPython
+
+![jupyter-mysql-kernel](https://github.com/shemic/jupyter-mysql-kernel/res/jupyter.png)
+
 
 ## install:
 
