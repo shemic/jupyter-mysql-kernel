@@ -109,7 +109,7 @@ class MysqlKernel(Kernel):
 					if v[0] == "#":
 						continue
 					self.execute(v)
-					if 'select' in v or 'show' in v:
+					if 'select' in v or 'show' in v or 'explain' in v or 'desc' in v:
 						output = self.fetchall()
 					else:
 						self.commit()
