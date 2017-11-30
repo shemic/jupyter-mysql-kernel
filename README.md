@@ -2,10 +2,12 @@
 
 ## install:
 
-`pip install git+https://github.com/shemic/jupyter-mysql-kernel`
+```
+pip install git+https://github.com/shemic/jupyter-mysql-kernel
+```
 
 ## mysql config:
-`
+```
 mkdir -p ~/.local/config/
 vi ~/.local/config/mysql_config.json
 
@@ -16,4 +18,4 @@ vi ~/.local/config/mysql_config.json
     "charset"  : "utf8"
     "password" : "123456"
 }
-`
+```
