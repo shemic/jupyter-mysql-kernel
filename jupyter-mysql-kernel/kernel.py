@@ -8,6 +8,7 @@ import os.path
 import sys
 import re
 import pymysql
+import json
 
 __version__ = '0.0.1'
 
