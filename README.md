@@ -6,7 +6,7 @@
 ## install:
 
 ```
-pip install git+https://github.com/shemic/jupyter-mysql-kernel
+pip install git+https://github.com/bertrandpsi/jupyter-mysql-kernel
 ```
 
 ## mysql config:
@@ -19,6 +19,7 @@ vi ~/.local/config/mysql_config.json
     "port"     : "3306",
     "host"     : "127.0.0.1",
     "charset"  : "utf8",
-    "password" : "123456"
+    "password" : "",
+    "display"  : "prettytable"
 }
 ```
