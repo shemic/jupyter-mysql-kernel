@@ -23,3 +23,6 @@ vi ~/.local/config/mysql_config.json
     "display"  : "prettytable"
 }
 ```
+
+## Multi-line sql statements
+For multi-line sql statements either ends your last command with a semi-column (;) or have semi-columns and returns in the string.
