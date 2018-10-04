@@ -1,16 +1,20 @@
 """
 	jupyter-mysql-kernel
-	author:rabin
+	author:rabin, alain bertrand
 """
 
 class MysqlParser():
-	def __init__(self, **kwargs):
-		try:
-			self.load = __import__('pandas')
-			self.type = 'pandas'
-		except ImportError as msg:
+	def __init__(self, display, **kwargs):
+		if display == 'prettytable':
 			self.load = __import__('prettytable')
 			self.type = 'prettytable'
+		else:
+			try:
+				self.load = __import__('pandas')
+				self.type = 'pandas'
+			except ImportError as msg:
+				self.load = __import__('prettytable')
+				self.type = 'prettytable'
 
 	def pandas(self):
 		if self.type == 'pandas':

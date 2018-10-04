@@ -1,6 +1,6 @@
 """
 	jupyter-mysql-kernel
-	author:rabin
+	authors:rabin, alain bertrand
 """
 from ipykernel.kernelbase import Kernel
 from .parser import MysqlParser
@@ -10,7 +10,7 @@ import re
 import pymysql
 import json
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 version_pat = re.compile(r'version (\d+(\.\d+)+)')
 
@@ -37,11 +37,12 @@ class MysqlKernel(Kernel):
 
 	mysql_setting_file = os.path.join(os.path.expanduser('~'), '.local/config/mysql_config.json')
 	mysql_config = {
-		'user'	  : 'root'
-		,'host'	  : '192.168.15.10'
-		,'port'	  : '3309'
+		'user'	     : 'root'
+		,'host'	     : '127.0.0.1'
+		,'port'	     : '3306'
 		,'charset'   : 'utf8'
-		,'password'  : '123456'
+		,'password'  : ''
+		,'display'   : 'prettytable'
 	}
 
 	def __init__(self, **kwargs):
@@ -49,7 +50,7 @@ class MysqlKernel(Kernel):
 		if os.path.exists(self.mysql_setting_file):
 			with open(self.mysql_setting_file,"r") as f:
 				self.mysql_config.update(json.load(f))
-		self.parser = MysqlParser()
+		self.parser = MysqlParser(self.mysql_config['display'])
 		self.connect()
 
 	def connect(self):
@@ -103,13 +104,18 @@ class MysqlKernel(Kernel):
 		sql = code.rstrip()
 		output = ''
 		try:
-			for v in sql.split("\n"):
+			splitString = "\n"
+			if ";\n" in sql or sql.endswith(";"):
+				splitString = ";\n"
+
+			for v in sql.split(splitString):
 				v = v.rstrip()
+				l = v.lower()
 				if len(v) > 0:
 					if v[0] == "#":
 						continue
 					self.execute(v)
-					if 'select' in v or 'show' in v or 'explain' in v or 'desc' in v:
+					if l.startswith('select') or l.startswith('show') or l.startswith('explain') or l.startswith('desc'):
 						output = self.fetchall()
 					else:
 						self.commit()
