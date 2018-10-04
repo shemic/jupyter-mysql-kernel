@@ -65,13 +65,13 @@ class MysqlKernel(Kernel):
 			self.connect = False
 
 	def execute(self, sql):
-		if self.connect = False:
+		if not self.connect:
 			self.connect()
 		if self.connect:
 			self.cursor.execute(sql)
 
 	def fetchall(self):
-		if self.connect = False:
+		if not self.connect:
 			self.connect()
 		if self.connect:
 			if self.parser.pandas():
@@ -81,7 +81,7 @@ class MysqlKernel(Kernel):
 		return False
 
 	def commit(self):
-		if self.connect = False:
+		if not self.connect:
 			self.connect()
 		if self.connect:
 			self.connect.commit()
