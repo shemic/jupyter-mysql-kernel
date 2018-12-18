@@ -39,12 +39,12 @@ if svem_flag in sys.argv:
 	sys.argv.remove(svem_flag)
 
 setup(name='jupyter-mysql-kernel',
-	  version='0.0.1',
+	  version='0.0.2',
 	  description='A mysql kernel for Jupyter',
 	  long_description=readme,
-	  author='rabin',
-	  author_email='2934170@gmail.com',
-	  url='https://github.com/shemic/jupyter-mysql-kernel',
+	  author='rabin, alain bertrand',
+	  author_email='2934170@gmail.com, alain.bertrand@psi.ch',
+	  url='https://github.com/bertrandpsi/jupyter-mysql-kernel',
 	  packages=['jupyter-mysql-kernel'],
 	  cmdclass={'install': install_with_kernelspec},
 	  install_requires=['pymysql','prettytable'],
